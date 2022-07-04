@@ -1,26 +1,19 @@
-import React, { FunctionComponent, ReactElement } from 'react';
-import logo from './logo.svg';
+import { FunctionComponent, ReactElement, StrictMode } from 'react';
 import './App.scss';
+import { BrowserRouter, Routes, Route, RouteProps } from 'react-router-dom';
+import { AppRoute } from './models/app-route';
 
 export interface AppRenderProps {}
 
 export const AppRender: FunctionComponent<AppRenderProps> = (props): ReactElement => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/app/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    // StrictMode helps with identifying additional issues for the application (https://reactjs.org/docs/strict-mode.html)
+    <StrictMode>
+      <BrowserRouter>
+        <Routes>
+          {AppRoute.pageRoutes.map((route: RouteProps, i) => <Route key={`route-${i}`} {...route}/>)}
+        </Routes>
+      </BrowserRouter>
+    </StrictMode>
   );
 }
