@@ -1,14 +1,16 @@
-import React from 'react';
+import React, { FunctionComponent, ReactElement } from 'react';
 import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
-function App() {
+export interface AppRenderProps {}
+
+export const AppRender: FunctionComponent<AppRenderProps> = (props): ReactElement => {
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.tsx</code> and save to reload.
+          Edit <code>src/app/App.tsx</code> and save to reload.
         </p>
         <a
           className="App-link"
@@ -22,5 +24,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
