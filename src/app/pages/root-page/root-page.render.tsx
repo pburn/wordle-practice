@@ -1,4 +1,5 @@
 import React, { FunctionComponent, ReactElement } from 'react';
+import { WordSquares } from '../../components';
 import styles from './root-page.module.scss';
 
 interface RootPageRenderProps {}
@@ -6,7 +7,7 @@ interface RootPageRenderProps {}
 export const RootPageRender: FunctionComponent<RootPageRenderProps> = (): ReactElement => {
   return (
     <div className={styles.RootPage} data-testid="RootPage">
-      Root Page
+      <WordSquares />
     </div>
   )
 }
